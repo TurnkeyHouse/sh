@@ -1,16 +1,21 @@
 .section3{
+  padding-left: 5em;
+  padding-right: 5em;
   padding-top: 10em;
   padding-bottom: 10em;
+  /* padding-bottom: 10em; */
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color:#181818;
   height: 100%;
   width: 100%;
+  gap: 3em;
 }
 .ourServicesContainer{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
    max-width: 1300px;
@@ -19,18 +24,27 @@
    padding-bottom: 1.5em;
    gap: 1em;
 }
+.line{
+  width: 10em;
+  height: 1px;
+  background-color: #494949;
+  margin-bottom: 1em;
+}
 .h1{
-  text-align: center;
-  color: black;
-  padding-bottom: 1em;
-  font-size: 3em;
-  margin: 0 auto;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  padding-bottom: 0.5em;
+  font-size: 2.5rem;
+  /* margin: 0 auto; */
+}
+.span{
+  color: #ff0000;
 }
 .mainText{
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
-  color: rgb(76, 76, 76);
-  font-size: 1.8em;
+  color: rgb(125, 125, 125);
+  font-size: 1.4rem;
 }
 .buttonBlack{
   outline: none;
@@ -38,15 +52,33 @@
   margin-top: 3em ;
   cursor: pointer;
   font-size: 16px;
-  padding: 20px 50px 20px 50px;;
-  border-radius: 50px;
-  border: 1px rgb(0, 0, 0) solid;
-  color: rgb(0, 0, 0);
+  padding: 20px 60px 20px 60px;;
+  /* border-radius: 50px; */
+  border: 1px rgb(255, 255, 255) solid;
+  color: rgb(255, 255, 255);
   background-color: transparent;
 }
 .buttonBlack:hover{
   outline: none;
   box-shadow: none;
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+@media(max-width:950px){
+  .section3{
+    flex-direction: column;
+   padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 5em;
+  padding-bottom: 3em;
+  }  
+  .mainText{
+    font-size: 1.3rem;
+  }
+  .buttonBlack{
+    margin: 3em auto;
+  }
+  .ourServicesContainer{
+    align-items: center;
+  }
 }

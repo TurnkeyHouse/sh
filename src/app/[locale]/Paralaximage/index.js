@@ -3,6 +3,7 @@ import styles from "./Paralaximage.module.css";
 import React from "react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 // import { useTranslation } from "next-i18next";
 export default function Paralaximage({title,button}) {
@@ -32,13 +33,19 @@ export default function Paralaximage({title,button}) {
             <div className={styles.parallaxContainer}>
                 <div style={parallaxStyle} className={styles.section1}></div>
                 <div className={styles.slogan}>
+                <div className={styles.sl}>
                     <h2 className={styles.title}>
-                        Schlusselfertiges <br></br>Haus
+                       INC IT UP WITH  
+                       <span className={styles.titleName}> MARRY ANN </span> 
                     </h2>
-                    <p className={styles.subTitle}>{title}</p>
+                    <p className={styles.subTitle}>
+                    — EST'D 2007 —
+                       
+                    </p>
                     <Link className={styles.link} href={`/${locale}/contact`}>
                         <button className={styles.button}>{button}</button>
                     </Link>
+                    </div>
                 </div>
             </div>
             

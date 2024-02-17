@@ -1,0 +1,26 @@
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 18px;
+  /* background:linear-gradient(to right, red, black); */
+  background:red;
+  color: #ffffff;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  /* border: 1px white solid; */
+  z-index: 1000000;
+  display: none;
+  transition: background 0.5s ease; 
+}
+.scroll-to-top-btn:hover{
+  background:linear-gradient(to right, red, black); 
+}
+.scroll-to-top-btn.visible {
+  display: block;
+}
