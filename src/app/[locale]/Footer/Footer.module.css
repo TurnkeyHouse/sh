@@ -3,23 +3,24 @@
     bottom:0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
-    height: 20vh;
+    height: 100%;
     flex-shrink: 0;
     z-index: 11;
     /* border-top: 1px solid #292929 ; */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: rgb(43, 43, 43);
+    padding-top: 3em;
+    padding-bottom: 3em;
+    background-color: rgb(0, 0, 0);
 }
-.footer_container{
-    margin-top:50px;
-    width: 100%;
+.footerContainer{
+    padding: 5em;
+    /* margin-top:50px; */
+    max-width: 1600px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding-bottom: 20px;
+    justify-content: center;
+    /* padding-bottom: 20px; */
 }
 .threeBlock{
     display: flex;
@@ -45,5 +46,102 @@
 @media (max-width: 430px) {
     .fd{
         font-size: 13px;
+    }
+}
+.buttonBlack{
+    outline: none;
+    box-shadow: none;
+    margin-top: 3em ;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 20px 60px 20px 60px;;
+    /* border-radius: 50px; */
+    border: 1px rgb(255, 255, 255) solid;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+  }
+  .buttonBlack:hover{
+    outline: none;
+    box-shadow: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+  .footerColums{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footerColum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 33.333%;
+  }
+  .footerColumInner{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @media (max-width: 1600px) {
+        .footerContainer{
+          width: 100%;
+        }
+}
+.logoTitle{
+    color: red;
+    font-size: 2rem;
+    padding-bottom: 1em;
+}
+.footerDescr{
+    color: grey;
+    font-size: 1.2rem;
+}
+.ItemFooter{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgb(25, 25, 25);
+}
+.ItemFooterTitle{
+    font-size: 1.3rem;
+    color: white;
+}
+.titleColums{
+    position: relative;
+    font-size: 1.8rem;
+    padding-bottom: 0.5em;
+    border-bottom: 3px solid linear-gradient(to right, red, black);
+}
+.titleColums::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Товщина лінії */
+    background: linear-gradient(to right, red, black);
+  }
+.ItemFooterDescr{
+    padding-top: 0.5em;
+    font-size: 1.3rem;
+    color: rgb(82, 80, 80);
+}
+@media (max-width: 1120px) {
+    .footerColums{
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 2em;
+    }
+    .footerColum{
+        width: 100%;
+        align-items: flex-start;
+    }
+
+}
+@media (max-width: 500px) {
+    .footerContainer{
+        padding: 2em;
     }
 }

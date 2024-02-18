@@ -24,7 +24,17 @@ export default function Header({home,about,projects,contact}) {
     return (
        <>
             <header className={styles.header}>
-            <Link className={styles.link} href={`/${locale}`}><p className={styles.logo}>SH</p></Link>
+            <Link className={styles.link} href={`/${locale}`}>
+{/*              
+              <Image
+                        className={styles.favorImg}
+                        width={40}
+                        height={40}
+                        src="/logo.png"
+                        alt="png"
+                    /> */}
+                     {/* <p className={styles.logo}>inkd by marry ann</p> */}
+              </Link>
                 <div className={open ? styles.menu : styles.menu + " " + styles.active }>
                 <ul onClick={() => openHandler()}  className={styles.menuList}>
                     <Link  className={styles.link}  href={`/${locale}`}><li onClick={() => setActive(0)} className={ (active === 0) ? styles.menuActive  : styles.menuItem }>{home}</li></Link>

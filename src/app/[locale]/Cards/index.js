@@ -1,5 +1,14 @@
 "use client"
+import ImageGallery from 'react-image-gallery';
+import { useState } from 'react';
 import styles from './Cards.module.css';
+import 'react-image-gallery/styles/css/image-gallery.css';
+import Image from 'next/image';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-image-gallery/styles/css/image-gallery.css';
+
+
 function Cards({
                      prtitle1,
                      prtitle2,
@@ -18,140 +27,81 @@ function Cards({
                      prtext7,
                      prtext8
 }) {
+  const imgs = [
+    '/imh1.jpg',
+    '/imh2.jpg',
+    '/imh3.jpg',
+    '/imh4.jpg',
+    '/imh5.jpg',
+    '/imh1.jpg',
+    '/imh2.jpg',
+    '/imh3.jpg',
+    '/imh4.jpg',
+    '/imh5.jpg',
+  ];
+
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const openGallery = (index) => {
+    setIsGalleryOpen(true);
+    setSelectedImageIndex(index);
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+    setSelectedImageIndex(0);
+  };
+
+  const galleryImages = imgs.map((image) => ({
+    original: image,
+    thumbnail: image,
+  }));
+
   return (
     <>
-     <div className={styles.cards}>
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront1}>
-          <p className={styles.clickme}>click me</p>
+      <div className={styles.wrapper}>
+        <div className={styles.headBlock}>
+          <h1 className={styles.h1}>
+            OUR <span className={styles.redh1}>PROJECTS</span>
+          </h1>
+          <div className={styles.line}></div>
         </div>
-        <div className={styles.cardBack1}>
-          <div className={styles.text}>
-          <h2>{prtitle1}</h2>
-          <p>{prtext1}</p>
+        <div className={styles.content}>
+          <div className={styles.cards}>
+            {imgs.map((value, index) => (
+                <LazyLoadImage
+                key={index}
+                className={styles.projectImg}
+                onClick={() => openGallery(index)}
+                src={value}
+                alt={`Project ${index + 1}`}
+                effect="blur" // Додає ефект розфокусування під час завантаження
+              />
+                
+            ))}
           </div>
         </div>
       </div>
-    </div>
-
-    {/* <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront2}>
-          <p></p>
-        </div>
-        <div className={styles.cardBack2}>
-          <div className={styles.text}>
-          <h2>Back Content</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque nulla iste incidunt nihil dicta aspernatur, quod unde magni cum possimus, id, dolore nostrum quisquam totam nesciunt nobis consequuntur voluptatibus? Expedita!</p>
+      {isGalleryOpen && (
+        <div className={styles.galleryOverlay} >
+          <div
+            className={styles.galleryContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className={styles.closeButton} onClick={closeGallery}>
+        &times; {/* Знак "хрестик" */}
+      </button>
+            <ImageGallery
+              items={galleryImages}
+              startIndex={selectedImageIndex}
+              showThumbnails={false}
+              showFullscreenButton={false}
+              showPlayButton={false}
+            />
           </div>
         </div>
-      </div>
-    </div> */}
-
-     <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront3}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack3}>
-          <div className={styles.text}>
-          <h2>{prtitle2}</h2>
-          <p>{prtext2}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront5}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack5}>
-          <div className={styles.text}>
-          <h2>{prtitle3}</h2>
-          <p>{prtext3}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront6}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack6}>
-          <div className={styles.text}>
-          <h2>{prtitle4}</h2>
-          <p>{prtext4}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront7}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack7}>
-          <div className={styles.text}>
-          <h2>{prtitle5}</h2>
-          <p>{prtext5}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront8}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack8}>
-          <div className={styles.text}>
-          <h2>{prtitle6}</h2>
-          <p>{prtext6}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront9}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack9}>
-          <div className={styles.text}>
-          <h2>{prtitle7}</h2>
-          <p>{prtext7}</p>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-   
-
-    <div className={styles.card}>
-      <div className={styles.cardInner}>
-        <div className={styles.cardFront4}>
-        <p className={styles.clickme}>click me</p>
-        </div>
-        <div className={styles.cardBack4}>
-          <div className={styles.text}>
-          <h2>{prtitle8}</h2>
-          <p>{prtext8}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
+      )}
     </>
   );
 }

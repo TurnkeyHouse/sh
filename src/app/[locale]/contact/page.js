@@ -6,6 +6,7 @@ import Image from "next/image";
 import ContactComponent from "../ContactComponent";
 import {unstable_setRequestLocale} from 'next-intl/server';
 import { useTranslations } from "next-intl";
+import ScrollToTopButton from "@/app/ScrollToTopButton/ScrollToTopButton";
 function Contacts({
     params: {locale}
   }) {
@@ -18,6 +19,11 @@ function Contacts({
              projects={t("projects")}
              about={t("about")}
              contact={t("contact")}  />
+              <ScrollToTopButton/>
+              <div className={styles.headBlock}>
+                <h1 className={styles.hg1} >OUR <span className={styles.redh1}>CONTACT</span></h1>
+                <div className={styles.line}></div>
+            </div>
             <ContactComponent
             contacTitle={t("contacTitle")}
             contacttext1={t("contacttext1")}
